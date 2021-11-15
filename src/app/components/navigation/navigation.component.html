@@ -8,8 +8,9 @@
     </mat-nav-list>
   </mat-sidenav>
   <mat-sidenav-content>
-    <mat-toolbar color="primary">
+    <mat-toolbar fxLayout="row" color="primary">
       <button
+        fxFlex="3"
         type="button"
         aria-label="Toggle sidenav"
         mat-icon-button
@@ -17,7 +18,12 @@
         >
         <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
       </button>
-      <span>Noticias</span>
+      <span fxFlex="80" fxFlexOffset="2">Noticias</span>
+      <div fxFlex fxLayout="row" fxLayoutAlign="end center">
+        <mat-icon class="thumbs" fxFlex="10">thumb_up</mat-icon>
+        <div fxFlex="80" fxFlexOffset="4">Totales: {{totalLikes}}</div>
+        
+      </div>
     </mat-toolbar>
     <!-- Add Content Here -->
     <ng-content></ng-content>

@@ -23,6 +23,7 @@ export class NoticiasComponent implements OnInit {
   addLikes(index: number){
     console.log(index);
     this.noticias[index].likes++;
+    this._noticiasService.sendAddLike.emit();
   }
 
 }

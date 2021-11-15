@@ -3,16 +3,18 @@
     <!-- <mat-card *ngFor="let item of noticias; let i=index">
         {{item.titulo}}
     </mat-card> -->
-    <mat-card *ngFor="let item of noticias; let i=index">
-        <div fxLayout="row">
-            <div fxFlex="95" fxLayout="column">
-                <div>{{item.titulo}}</div>
-                <div>{{formatDate(item.fechaPublicacion)}}</div>
+    <div fxLayout="column" fxLayoutGap="12px">
+        <mat-card *ngFor="let item of noticias; let i=index">
+            <div fxLayout="row">
+                <div fxFlex="95" fxLayout="column">
+                    <div>{{item.titulo}}</div>
+                    <div>{{formatDate(item.fechaPublicacion)}}</div>
+                </div>
+                <div fxFlex fxLayout="row" fxLayoutAlign="end center">
+                    <div fxFlex="60" fxFlexOffset="10" fxLayoutAlign="center">{{item.likes}}</div>
+                    <mat-icon class="thumbs" (click)="addLikes(i)" fxFlex>thumb_up</mat-icon>
+                </div>
             </div>
-            <div fxFlex fxLayout="row" fxLayoutAlign="end center">
-                <div fxFlex="60" fxFlexOffset="10" fxLayoutAlign="center">{{item.likes}}</div>
-                <mat-icon class="thumbs" (click)="addLikes(i)" fxFlex>thumb_up</mat-icon>
-            </div>
-        </div>
-    </mat-card>
+        </mat-card>
+    </div>
 </div>
