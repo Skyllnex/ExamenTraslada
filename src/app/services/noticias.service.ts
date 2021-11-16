@@ -9,7 +9,7 @@ import { Noticia } from '../models/noticia';
 })
 export class NoticiasService {
   @Output() sendAddLike = new EventEmitter();
-  private noticias = [
+  private noticias: Noticia[] = [
     {
       titulo : "Un material natural ideado en Finlandia podría reemplazarlo al plástico",
       fechaPublicacion : "2019-12-16T11:30:00.4900348-03:00",
@@ -40,11 +40,11 @@ export class NoticiasService {
     private http: HttpClient
   ) { }
 
-  getNoticias(): Observable<Noticia> {
-    return this.http.get<Noticia>(`http://api2.traslada.com.ar/test/examen/noticias`);
+  getNoticias(): Observable<Noticia[]> {
+    return this.http.get<Noticia[]>(`http://api2.traslada.com.ar/test/examen/noticias`);
   }
 
-  getMockNoticias(){
+  getMockNoticias(): Observable<Noticia[]>{
     return of(this.noticias).pipe(delay(500));
   }
 }

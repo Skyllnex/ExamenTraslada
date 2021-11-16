@@ -16,11 +16,11 @@ export class NoticiasComponent implements OnInit {
       .subscribe(x => this.noticias = x);
   }
 
-  formatDate(date: string){
+  formatDate(date: string): string{
     return new Intl.DateTimeFormat('en-GB').format(new Date(date));
   }
 
-  addLikes(index: number){
+  addLikes(index: number): void{
     console.log(index);
     this.noticias[index].likes++;
     this._noticiasService.sendAddLike.emit();

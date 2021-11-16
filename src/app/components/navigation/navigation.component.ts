@@ -12,7 +12,7 @@ export class NavigationComponent implements OnInit {
     private _noticiasService:NoticiasService
     ) {}
 
-  ngOnInit(){
+  ngOnInit(): void{
     this._noticiasService.getMockNoticias()
     .subscribe(x =>{
       let likeList = x.map(x => x.likes);
